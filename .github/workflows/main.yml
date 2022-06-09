@@ -19,7 +19,6 @@ jobs:
       runs-on: ubuntu-latest
       environment:
         name: ci-dev
-        url: teste.com
       needs: build
       steps:
       - name: Run a one-line script
@@ -29,7 +28,6 @@ jobs:
       runs-on: ubuntu-latest
       environment:
         name: ci-hmg
-        url: teste.com
       needs: deploy-dev
       steps:
       - name: Run a one-line script
@@ -39,7 +37,6 @@ jobs:
       runs-on: ubuntu-latest
       environment:
         name: ci-hmg
-        url: teste.com
       needs: deploy-hmg
       steps:
       - name: Run a one-line script
