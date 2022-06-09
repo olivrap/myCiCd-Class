@@ -13,31 +13,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo Hello, world! - Build
-        
-  deploy-dev:
+        run: echo Hello, world! 
+  
+  
+  
+  depdev:
       runs-on: ubuntu-latest
       environment:
         name: ci-dev
       needs: build
       steps:
-      - name: Run a one-line script
-        run: deploy Dev
-        
-  deploy-hmg:
+        - name: Run a one-line script
+          run: deploy Dev
+     
+     
+     
+  dephmg:
       runs-on: ubuntu-latest
       environment:
         name: ci-hmg
-      needs: deploy-dev
+      needs: depdev
       steps:
-      - name: Run a one-line script
-        run: deploy HMG
-        
-  deploy-prd:
+        - name: Run a one-line script
+          run: deploy HMG
+    
+    
+    
+    
+  depprd:
       runs-on: ubuntu-latest
       environment:
-        name: ci-hmg
-      needs: deploy-hmg
+        name: ci-prod
+      needs: dephmg
       steps:
-      - name: Run a one-line script
-        run: deploy PRD
+        - name: Run a one-line script
+          run: deploy PRD
